@@ -21,4 +21,7 @@ pub fn main() void {
 
     const b: u32 = undefined;
     std.debug.print("{d}\n", .{b});
+
+    const array1 = [5]u8{ 'h', 'e', 'l', 'l', 'o' };
+    std.debug.print("{s}\n", .{array1}); // will print: hello
 }
