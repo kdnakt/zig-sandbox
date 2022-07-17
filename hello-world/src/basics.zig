@@ -15,4 +15,10 @@ pub fn main() void {
 
     var inferred_variable = @as(u32, 5000);
     std.debug.print("{d}\n", .{inferred_variable});
+
+    const a: i32 = undefined;
+    std.debug.print("{d}\n", .{a}); // will print random number like 1863512824
+
+    const b: u32 = undefined;
+    std.debug.print("{d}\n", .{b});
 }
