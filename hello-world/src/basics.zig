@@ -7,4 +7,6 @@ pub fn main() void {
 
     var variable: u32 = 5000;
     std.debug.print("{d}\n", .{variable});
+    variable = 6000;
+    std.debug.print("{d}\n", .{variable});
 }
