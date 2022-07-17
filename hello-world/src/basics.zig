@@ -12,4 +12,7 @@ pub fn main() void {
 
     const inferred_constant = @as(i32, 5);
     std.debug.print("{d}\n", .{inferred_constant});
+
+    var inferred_variable = @as(u32, 5000);
+    std.debug.print("{d}\n", .{inferred_variable});
 }
