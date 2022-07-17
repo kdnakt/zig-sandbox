@@ -27,4 +27,6 @@ pub fn main() void {
 
     const array2 = [_]u8{ 'w', 'o', 'r', 'l', 'd' };
     std.debug.print("{any}\n", .{array2}); // will print: { 119, 111, 114, 108, 100 }
+
+    std.debug.print("array1 length: {d}\n", .{array1.len}); // 5
 }
