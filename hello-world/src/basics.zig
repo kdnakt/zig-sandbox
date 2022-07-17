@@ -9,4 +9,7 @@ pub fn main() void {
     std.debug.print("{d}\n", .{variable});
     variable = 6000;
     std.debug.print("{d}\n", .{variable});
+
+    const inferred_constant = @as(i32, 5);
+    std.debug.print("{d}\n", .{inferred_constant});
 }
