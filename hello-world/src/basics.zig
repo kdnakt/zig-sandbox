@@ -24,4 +24,7 @@ pub fn main() void {
 
     const array1 = [5]u8{ 'h', 'e', 'l', 'l', 'o' };
     std.debug.print("{s}\n", .{array1}); // will print: hello
+
+    const array2 = [_]u8{ 'w', 'o', 'r', 'l', 'd' };
+    std.debug.print("{any}\n", .{array2}); // will print: { 119, 111, 114, 108, 100 }
 }
