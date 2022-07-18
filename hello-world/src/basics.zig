@@ -31,6 +31,12 @@ pub fn main() void {
     std.debug.print("{any}\n", .{array2}); // will print: { 119, 111, 114, 108, 100 }
 
     std.debug.print("array1 length: {d}\n", .{array1.len}); // 5
+
+    var i: u8 = 2;
+    while (i < 100) {
+        i *= 2;
+    }
+    std.debug.print("i={d}\n", .{i}); // prints: 128
 }
 
 // test with: zig test basics.zig
