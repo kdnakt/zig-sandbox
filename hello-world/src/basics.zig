@@ -1,5 +1,7 @@
 const std = @import("std");
 
+const expect = @import("std").testing.expect;
+
 pub fn main() void {
     const constant: i32 = 5;
     std.debug.print("{d}\n", .{constant});
@@ -29,4 +31,16 @@ pub fn main() void {
     std.debug.print("{any}\n", .{array2}); // will print: { 119, 111, 114, 108, 100 }
 
     std.debug.print("array1 length: {d}\n", .{array1.len}); // 5
+}
+
+// test with: zig test basics.zig
+test "if statement" {
+    const a = true;
+    var x: u16 = 0;
+    if (a) {
+        x += 1;
+    } else {
+        x += 2;
+    }
+    try expect(x == 1);
 }
