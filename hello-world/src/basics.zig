@@ -37,6 +37,14 @@ pub fn main() void {
         i *= 2;
     }
     std.debug.print("i={d}\n", .{i}); // prints: 128
+
+    var j: u8 = 1;
+    var sum: u8 = 0;
+    while (j <= 10) : (j += 1) {
+        sum += j;
+    }
+    std.debug.print("j={d}\n", .{j}); // 11
+    std.debug.print("sum={d}\n", .{sum}); // 55
 }
 
 // test with: zig test basics.zig
