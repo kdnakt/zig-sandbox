@@ -45,6 +45,15 @@ pub fn main() void {
     }
     std.debug.print("j={d}\n", .{j}); // 11
     std.debug.print("sum={d}\n", .{sum}); // 55
+
+    i = 0;
+    sum = 0;
+    while (i <= 3) : (i += 1) {
+        if (i == 2) continue;
+        sum += i;
+    }
+    std.debug.print("i={d}\n", .{i});
+    std.debug.print("sum={d}\n", .{sum});
 }
 
 // test with: zig test basics.zig
