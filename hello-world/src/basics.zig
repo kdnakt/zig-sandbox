@@ -63,6 +63,23 @@ pub fn main() void {
     }
     std.debug.print("i={d}\n", .{i});
     std.debug.print("sum={d}\n", .{sum});
+
+    const array3 = [_]u8{ 'a', 'b', 'c' };
+    for (array3) | character, index | {
+        std.debug.print("character={any}", .{character});
+        std.debug.print(" index={d}\n", .{index});
+    }
+
+    for (array3) | character | {
+        std.debug.print("character={any}\n", .{character});
+    }
+
+    for (array3) | _, index | {
+        std.debug.print("index={d}\n", .{index});
+    }
+    for (array3) |_| {
+        std.debug.print("for loop\n", .{});
+    }
 }
 
 // test with: zig test basics.zig
