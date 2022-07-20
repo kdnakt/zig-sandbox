@@ -83,10 +83,18 @@ pub fn main() void {
 
     const res = addFive(2);
     std.debug.print("addFive(2) == {d}\n", .{res});
+
+    const fib_ten = fib(10);
+    std.debug.print("fib(10) == {d}\n", .{fib_ten});
 }
 
 fn addFive(x: u32) u32 {
     return x + 5;
+}
+
+fn fib(n: u16) u16 {
+   if (n == 0 or n == 1) return n;
+   return fib(n - 1) + fib(n - 2);
 }
 
 // test with: zig test basics.zig
