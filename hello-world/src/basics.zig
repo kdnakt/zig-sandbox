@@ -80,6 +80,13 @@ pub fn main() void {
     for (array3) |_| {
         std.debug.print("for loop\n", .{});
     }
+
+    const res = addFive(2);
+    std.debug.print("addFive(2) == {d}\n", .{res});
+}
+
+fn addFive(x: u32) u32 {
+    return x + 5;
 }
 
 // test with: zig test basics.zig
