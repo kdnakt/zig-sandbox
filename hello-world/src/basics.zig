@@ -95,6 +95,13 @@ pub fn main() void {
         std.debug.print("d={d}\n", .{d}); // 5
     }
     std.debug.print("d={d}\n", .{d}); // 7
+
+    var f: f32 = 5;
+    {
+        defer f += 2;
+        defer f /= 2;
+    }
+    std.debug.print("f={d}\n", .{f}); // 4.5
 }
 
 fn addFive(x: u32) u32 {
