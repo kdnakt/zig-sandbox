@@ -86,6 +86,8 @@ pub fn main() void {
 
     const fib_ten = fib(10);
     std.debug.print("fib(10) == {d}\n", .{fib_ten});
+
+    _ = fib(5);
 }
 
 fn addFive(x: u32) u32 {
