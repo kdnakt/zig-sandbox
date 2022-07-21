@@ -88,6 +88,13 @@ pub fn main() void {
     std.debug.print("fib(10) == {d}\n", .{fib_ten});
 
     _ = fib(5);
+
+    var d: u32 = 5;
+    {
+        defer d += 2;
+        std.debug.print("d={d}\n", .{d}); // 5
+    }
+    std.debug.print("d={d}\n", .{d}); // 7
 }
 
 fn addFive(x: u32) u32 {
