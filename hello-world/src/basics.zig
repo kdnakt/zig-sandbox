@@ -102,6 +102,10 @@ pub fn main() void {
         defer f /= 2;
     }
     std.debug.print("f={d}\n", .{f}); // 4.5
+
+    const AllocationError = error{OutOfMemory};
+    const err: FileOpenError = AllocationError.OutOfMemory;
+    std.debug.print("err={s}\n", .{err});
 }
 
 fn addFive(x: u32) u32 {
@@ -112,6 +116,13 @@ fn fib(n: u16) u16 {
    if (n == 0 or n == 1) return n;
    return fib(n - 1) + fib(n - 2);
 }
+
+const FileOpenError = error{
+    AccessDenied,
+    OutOfMemory,
+    FileNotFound,
+};
+
 
 // test with: zig test basics.zig
 test "if statement" {
