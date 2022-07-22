@@ -106,6 +106,11 @@ pub fn main() void {
     const AllocationError = error{OutOfMemory};
     const err: FileOpenError = AllocationError.OutOfMemory;
     std.debug.print("err={s}\n", .{err});
+
+    const maybe_error: AllocationError!u16 = 10;
+    const no_error = maybe_error catch 0;
+    const t = @TypeOf(no_error);
+    std.debug.print("type of no_error={s}\n", .{t});
 }
 
 fn addFive(x: u32) u32 {
