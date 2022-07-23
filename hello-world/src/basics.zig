@@ -118,6 +118,11 @@ pub fn main() void {
     };
     std.debug.print("Called failingFunction()\n", .{});
 
+    const ff = failFn() catch |e| {
+        std.debug.print("got error={s}\n", .{e});
+        return;
+    };
+    std.debug.print("ff={d}\n", .{ff}); // never reached
 }
 
 fn addFive(x: u32) u32 {
@@ -137,6 +142,12 @@ const FileOpenError = error{
 
 fn failingFunction() error{Oops}!void {
     return error.Oops;
+}
+
+// `try x` is a shortcut for `x catch |err| return err`
+fn failFn() error{Oops}!i32 {
+    try failingFunction();
+    return 12;
 }
 
 // test with: zig test basics.zig
