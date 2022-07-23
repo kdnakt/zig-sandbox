@@ -111,6 +111,13 @@ pub fn main() void {
     const no_error = maybe_error catch 0;
     const t = @TypeOf(no_error);
     std.debug.print("type of no_error={s}\n", .{t});
+
+    std.debug.print("Calling failingFunction()\n", .{});
+    failingFunction() catch |e| {
+        std.debug.print("got error={s}\n", .{e});
+    };
+    std.debug.print("Called failingFunction()\n", .{});
+
 }
 
 fn addFive(x: u32) u32 {
@@ -128,6 +135,9 @@ const FileOpenError = error{
     FileNotFound,
 };
 
+fn failingFunction() error{Oops}!void {
+    return error.Oops;
+}
 
 // test with: zig test basics.zig
 test "if statement" {
