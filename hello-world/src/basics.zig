@@ -118,6 +118,11 @@ pub fn main() void {
     };
     std.debug.print("Called failingFunction()\n", .{});
 
+    // type coercion
+    const xx: error{AccessDenied}!void = createFile();
+    // unwrap error unions
+    _ = xx catch {};
+
     std.debug.print("failFnCounter()\n", .{});
     failFnCounter() catch |e| {
         std.debug.print("got error={s}\n", .{e});
@@ -163,6 +168,11 @@ var problems: u32 = 98;
 fn failFnCounter() error{Oops}!void {
     errdefer problems += 1;
     try failingFunction();
+}
+
+// error unions returned from a function can be inferred
+fn createFile() !void {
+    return error.AccessDenied;
 }
 
 // test with: zig test basics.zig
