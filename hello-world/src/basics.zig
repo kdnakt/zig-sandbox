@@ -118,6 +118,14 @@ pub fn main() void {
     };
     std.debug.print("Called failingFunction()\n", .{});
 
+    std.debug.print("failFnCounter()\n", .{});
+    failFnCounter() catch |e| {
+        std.debug.print("got error={s}\n", .{e});
+        std.debug.print("problems={d}\n", .{problems});
+        return;
+    };
+
+    // never reached
     const ff = failFn() catch |e| {
         std.debug.print("got error={s}\n", .{e});
         return;
@@ -148,6 +156,13 @@ fn failingFunction() error{Oops}!void {
 fn failFn() error{Oops}!i32 {
     try failingFunction();
     return 12;
+}
+
+var problems: u32 = 98;
+
+fn failFnCounter() error{Oops}!void {
+    errdefer problems += 1;
+    try failingFunction();
 }
 
 // test with: zig test basics.zig
