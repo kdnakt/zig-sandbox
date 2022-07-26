@@ -123,6 +123,11 @@ pub fn main() void {
     // unwrap error unions
     _ = xx catch {};
 
+    const A = error{NotDir, PathNotFound};
+    const B = error{OutOfMemory,PathNotFound};
+    const C = A || B;
+    std.debug.print("merged errors={any}\n", .{C}); // errors=C
+
     std.debug.print("failFnCounter()\n", .{});
     failFnCounter() catch |e| {
         std.debug.print("got error={s}\n", .{e});
