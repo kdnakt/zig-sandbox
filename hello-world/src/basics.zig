@@ -128,6 +128,18 @@ pub fn main() void {
     const C = A || B;
     std.debug.print("merged errors={any}\n", .{C}); // errors=C
 
+    var xxx: i8 = 10;
+    switch (xxx) {
+        -1...1 => {
+            xxx = -xxx;
+        },
+        10, 100 => {
+            xxx = @divExact(xxx, 10);
+        },
+        else => {},
+    }
+    std.debug.print("xxx={d}\n", .{xxx});
+
     std.debug.print("failFnCounter()\n", .{});
     failFnCounter() catch |e| {
         std.debug.print("got error={s}\n", .{e});
