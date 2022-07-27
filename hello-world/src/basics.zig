@@ -140,6 +140,13 @@ pub fn main() void {
     }
     std.debug.print("xxx={d}\n", .{xxx});
 
+    xxx = switch (xxx) {
+        -1...1 => -xxx,
+        10, 100 => @divExact(xxx, 10),
+        else => xxx,
+    };
+    std.debug.print("xxx={d}\n", .{xxx});
+
     std.debug.print("failFnCounter()\n", .{});
     failFnCounter() catch |e| {
         std.debug.print("got error={s}\n", .{e});
