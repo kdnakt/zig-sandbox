@@ -147,6 +147,11 @@ pub fn main() void {
     };
     std.debug.print("xxx={d}\n", .{xxx});
 
+    //const array4 = [3]u8{1, 2, 3};
+    //var index: u8 = 5;
+    //const b4 = array4[index]; // will panic
+    //_ = b4;
+
     std.debug.print("failFnCounter()\n", .{});
     failFnCounter() catch |e| {
         std.debug.print("got error={s}\n", .{e});
