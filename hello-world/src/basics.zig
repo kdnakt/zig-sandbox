@@ -243,3 +243,14 @@ test "unreachable switch" {
     try expect(asciiToUpper('b') == 'B');
     try expect(asciiToUpper('B') == 'B');
 }
+
+fn increment(num: *u8) void {
+    num.* += 1;
+}
+
+test "pointers" {
+    var x: u8 = 1;
+    increment(&x);
+    try expect(x == 2);
+}
+
