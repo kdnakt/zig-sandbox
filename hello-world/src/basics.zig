@@ -254,3 +254,10 @@ test "pointers" {
     try expect(x == 2);
 }
 
+// setting a pointer to 0 is illegal behavior
+// test "naughty pointer" {
+//     var x: u16 = 0;
+//     var y: *u8 = @intToPtr(*u8, x);
+//     _ = y;
+// }
+
